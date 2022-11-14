@@ -1,0 +1,1047 @@
+#FINAL V3 12/11/22
+
+from funciones import*
+
+game()
+
+
+import replit
+
+#Salidas en cuartos 11(48)-22(17)-23(16)-48(43)
+
+def game(): 
+  #Inicia el juego
+  titulo()
+  inicio()
+
+def titulo():
+  print(("\033[1;31m"+(11*"=")+" BIENVENIDO AL LABERINTO, LLEGA HASTA EL FINAL PARA ESCAPAR "+(11*"="))) #Imprime el titulo de la pantalla principal
+def inicio(): #Inicia el juego
+  print("\033[1;37m"+"\n\n¿Deseas jugar el tutorial para entender las mecánicas? Elige la opción deseada tecleando el número de la opción.") 
+  x = input("\n\t1) Si.\t2)No.\n\n")
+  if x == '1':
+    tutorial()
+  elif x == '2':
+    entrada()
+  else:
+    print("\n Ingresa una de las opciones válidas")
+    inicio()
+def tutorial(): #Da opciones para iniciar el tutorial o pasar al juego
+  print("\nEste es un laberinto donde tendrás que pasar por varias habitaciones, cada habitación tiene dos o más puertas para elegir, las opciones estarán numeradas como 'Puerta 1', 'Puerta 2', etc... con el teclado tendrás que escribir la opción de la puerta a la que deseas dirigirte, y así sucesivamente hasta que llegues a la salida, existen 4 salidas posibles del laberinto, cuentas con un número infinito de oportunidades.\n\nComenzemos, estás en el cuarto #1.\n")
+  cuarto_tutorial()
+def cuarto_tutorial():
+  puertas_3()#Primer cuarto del tutorial para mostrar la mecánica básica del juego
+  x= input("\nElige una de las puertas para continuar. \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto_tutorial2()
+  elif x == '2':
+    puerta2()
+    cuarto_tutorial2()
+  elif x == '3':
+    puerta3()
+    cuarto_tutorial2()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto_tutorial()
+def cuarto_tutorial2():#Segundo cuarto del tutorial para finalizar el tutorial y empezar el juego o volver a tomarlo
+  puertas_3()
+  x= input("Estás en el cuarto #2.\n\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+  elif x == '2':
+    puerta2()
+  elif x == '3':
+    puerta3()
+  elif x == '4':
+    puerta4()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto_tutorial2()
+  print("Felicidades haz terminado el tutorial, ahora entiendes las mecánicas básicas del juego")
+  f = input("\nSi deseas repetir el tutorial presiona '1', si deseas empezar el juego presiona '2'\n\n")
+  if f == '1':
+    tutorial()
+  if f == '2':
+    entrada()
+def puerta1():
+  print("\nHaz elegido la puerta 1.\n")
+def puerta2():
+  print("\nHaz elegido la puerta 2.\n") 
+def puerta3():
+  print("\nHaz elegido la puerta 3.\n")
+def puerta4():
+    print("\nHaz elegido la puerta 4.\n")
+def entrada():
+  print("\nHaz comenzado el juego, te encuentras en la entrada del laberinto, ahora entrarás a la primera habitación\n")
+  cuarto1()
+def cuarto1():#Cuarto de inicio del juego
+  puertas_2()
+  print("\nEstás en el cuarto #1, tienes 2 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar. \n\n\t1) Puerta 1.\t2) Puerta 2.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto2()
+  elif x == '2':
+    puerta2()
+    cuarto12()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto1()
+def cuarto2():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #26, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto4()
+  elif x == '2':
+    puerta2()
+    cuarto1()
+  elif x == '3':
+    puerta3()
+    cuarto3()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto2()
+def cuarto3():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #23, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto24()
+  elif x == '2':
+    puerta2()
+    cuarto4()
+  elif x == '3':
+    puerta3()
+    cuarto2()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto3()
+def cuarto4():
+  contador()
+  puertas_4()
+  print("\nEstás en el cuarto #7 hay una piedra con forma de pirámide en la esquina. ¿Ya has pasado por aqui?, tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto5()
+  elif x == '2':
+    puerta2()
+    cuarto49()
+  elif x == '3':
+    puerta3()
+    cuarto2()
+  elif x == '4':
+    puerta4()
+    cuarto3()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto4()
+def cuarto5():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #2, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto24()
+  elif x == '2':
+    puerta2()
+    cuarto6()
+  elif x == '3':
+    puerta3()
+    cuarto4()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto5()
+def cuarto6():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #46 pareces estar dando vueltas en círculo ¿o te estás aproximando a la salida?, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto7()
+  elif x == '2':
+    puerta2()
+    cuarto5()
+  elif x == '3':
+    puerta3()
+    cuarto24()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto6()
+def cuarto7():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #21, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto8()
+  elif x == '2':
+    puerta2()
+    cuarto6()
+  elif x == '3':
+    puerta3()
+    cuarto25()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto7()
+def cuarto8():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #10 ¿estás avanzando o retrocediendo?, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto26()
+  elif x == '2':
+    puerta2()
+    cuarto9()
+  elif x == '3':
+    puerta3()
+    cuarto7()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto8()
+def cuarto9():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #14 los caminos bifurcados no dejan de aparecer pero una mancha con forma de circulo en la pared te da una idea de donde estás...., tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto8()
+  elif x == '2':
+    puerta2()
+    cuarto47()
+  elif x == '3':
+    puerta3()
+    cuarto10()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuart9()
+def cuarto10():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #12, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto9()
+  elif x == '2':
+    puerta2()
+    cuarto48()
+  elif x == '3':
+    puerta3()
+    cuarto11()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto10()
+def cuarto11():
+  contador()
+  puertas_4()
+  print("\nEstás en el cuarto #48 ¿que es eso? ¿aire fresco? ¿o solo otro callejón sin salida?, tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto10()
+  elif x == '2':
+    puerta2()
+    final()
+  elif x == '3':
+    puerta3()
+    cuarto29()
+  elif x == '4':
+    puerta4()
+    cuarto27()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto11()
+def cuarto12():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #40 esto parece familiar..., tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto50()
+  elif x == '2':
+    puerta2()
+    cuarto13()
+  elif x == '3':
+    puerta3()
+    cuarto1()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto12()
+def cuarto13():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #31, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto14()
+  elif x == '2':
+    puerta2()
+    cuarto12()
+  elif x == '3':
+    puerta3()
+    cuarto40()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto13()
+def cuarto14():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #4 ¿has vuelto a la entrada o solo se parece mucho?, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto15()
+  elif x == '2':
+    puerta2()
+    cuarto13()
+  elif x == '3':
+    puerta3()
+    cuarto40()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto14()
+def cuarto15():
+  contador()
+  puertas_4()
+  print("\nEstás en el cuarto #45 tantas puertas para elegir..., tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto16()
+  elif x == '2':
+    puerta2()
+    cuarto18()
+  elif x == '3':
+    puerta3()
+    cuarto14()
+  elif x == '4':
+    puerta4()
+    cuarto16()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto15()
+def cuarto16():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #24 ¿has pasado por aquí? esa pared dañada parece familiar, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto15()
+  elif x == '2':
+    puerta2()
+    cuarto17()
+  elif x == '3':
+    puerta3()
+    cuarto15()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto16()
+def cuarto17():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #38, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto18()
+  elif x == '2':
+    puerta2()
+    print("Camino cerrado, vuelve al cuarto #17")
+    cuarto17()
+  elif x == '3':
+    puerta3()
+    cuarto16()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto17()
+def cuarto18():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #3, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto19()
+  elif x == '2':
+    puerta2()
+    cuarto15()
+  elif x == '3':
+    puerta3()
+    cuarto17()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto18()  
+def cuarto19():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #35 has caminado mucho ¿será esta la puerta a la salida?, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto18()
+  elif x == '2':
+    puerta2()
+    cuarto20()
+  elif x == '3':
+    puerta3()
+    cuarto47()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto19()
+def cuarto20():
+  contador()
+  puertas_4()
+  print("\nEstás en el cuarto #29 parece que este lugar no tiene final, tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto47()
+  elif x == '2':
+    puerta2()
+    cuarto19()
+  elif x == '3':
+    puerta3()
+    cuarto46()
+  elif x == '4':
+    puerta4()
+    cuarto21()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto20()
+def cuarto21():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #49, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto20()
+  elif x == '2':
+    puerta2()
+    cuarto22()
+  elif x == '3':
+    puerta3()
+    cuarto48()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto21()  
+def cuarto22():
+  contador()
+  puertas_4()
+  print("\nEstás en el cuarto #17 otra vez esa piedra con forma de pirámide, ¿será la misma habitación?, tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto21()
+  elif x == '2':
+    puerta2()
+    cuarto46()
+  elif x == '3':
+    puerta3()
+    cuarto43()
+  elif x == '4':
+    puerta4()
+    final()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto22()  
+def cuarto23():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #16, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    final()
+  elif x == '2':
+    puerta2()
+    cuarto36()
+  elif x == '3':
+    puerta3()
+    cuarto35()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto23()
+def cuarto24():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #33, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto3()
+  elif x == '2':
+    puerta2()
+    cuarto6()
+  elif x == '3':
+    puerta3()
+    cuarto5()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto24()
+def cuarto25():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #50 este lugar solo tiene 50 cuartos, debería ser la salida ¿o no?, tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto26()
+  elif x == '2':
+    puerta2()
+    cuarto7()
+  elif x == '3':
+    puerta3()
+    print("Camino cerrado, vuelve al cuarto #25")
+    cuarto25()
+  elif x == '4':
+    puerta4()
+    cuarto26()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto25()  
+def cuarto26():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #27, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto8()
+  elif x == '2':
+    puerta2()
+    cuarto25()
+  elif x == '3':
+    puerta3()
+    cuarto25()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto26()  
+def cuarto27():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #34, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto11()
+  elif x == '2':
+    puerta2()
+    cuarto27()
+  elif x == '3':
+    puerta3()
+    cuarto27()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto27()  
+def cuarto28():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #41 sientate un rato y descansa, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto32()
+  elif x == '2':
+    puerta2()
+    cuarto29()
+  elif x == '3':
+    puerta3()
+    cuarto31()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto28()  
+def cuarto29():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #32, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto11()
+  elif x == '2':
+    puerta2()
+    cuarto33()
+  elif x == '3':
+    puerta3()
+    cuarto28()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto29() 
+def cuarto30():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #25 este lugar parece dar vueltas sobre si mismo, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto30()
+  elif x == '2':
+    puerta2()
+    cuarto31()
+  elif x == '3':
+    puerta3()
+    cuarto30()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto30()
+def cuarto31():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #30, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto28()
+  elif x == '2':
+    puerta2()
+    cuarto32()
+  elif x == '3':
+    puerta3()
+    cuarto30()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto31()
+def cuarto32():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #13 has vuelto al mismo lugar una y otra vez, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto31()
+  elif x == '2':
+    puerta2()
+    cuarto33()
+  elif x == '3':
+    puerta3()
+    cuarto28()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto32()
+    cuarto32()
+def cuarto33():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #6, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto29()
+  elif x == '2':
+    puerta2()
+    cuarto35()
+  elif x == '3':
+    puerta3()
+    cuarto32()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto33()
+def cuarto34():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #39 este cuarto es diferente hay una enredadera enla pared, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto35()
+  elif x == '2':
+    puerta2()
+    cuarto37()
+  elif x == '3':
+    puerta3()
+    print("Camino cerrado, vuelve al cuarto #34")
+    cuarto34()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto34()
+def cuarto35():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #22, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto33()
+  elif x == '2':
+    puerta2()
+    cuarto23()
+  elif x == '3':
+    puerta3()
+    cuarto34()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto35()
+def cuarto36():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #42, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto43()
+  elif x == '2':
+    puerta2()
+    cuarto37()
+  elif x == '3':
+    puerta3()
+    cuarto23()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto36()
+def cuarto37():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #20 ¿estarás cerca de la salida?, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto42()
+  elif x == '2':
+    puerta2()
+    cuarto34()
+  elif x == '3':
+    puerta3()
+    cuarto36()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto37()
+def cuarto38():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #19 todo está conectado con todo, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto49()
+  elif x == '2':
+    puerta2()
+    cuarto39()
+  elif x == '3':
+    puerta3()
+    cuarto50()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto38()
+def cuarto39():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #28 ¿sientes que ya has pasado por aqui?, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto40()
+  elif x == '2':
+    puerta2()
+    cuarto50()
+  elif x == '3':
+    puerta3()
+    cuarto38()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto39()
+def cuarto40():
+  contador()
+  puertas_4()
+  print("\nEstás en el cuarto #44 demasiadas opciones..., tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto14()
+  elif x == '2':
+    puerta2()
+    cuarto13()
+  elif x == '3':
+    puerta3()
+    cuarto50()
+  elif x == '4':
+    puerta4()
+    cuarto39()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto40()
+def cuarto41():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #9, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto44()
+  elif x == '2':
+    puerta2()
+    cuarto42()
+  elif x == '3':
+    puerta3()
+    cuarto42()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto41()
+def cuarto42():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #36 no hay forma de salir más que seguir avanzando, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto37()
+  elif x == '2':
+    puerta2()
+    cuarto41()
+  elif x == '3':
+    puerta3()
+    cuarto41()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto42()
+def cuarto43():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #15, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto22()
+  elif x == '2':
+    puerta2()
+    cuarto44()
+  elif x == '3':
+    puerta3()
+    cuarto36()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto43()
+def cuarto44():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #47, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto45()
+  elif x == '2':
+    puerta2()
+    cuarto41()
+  elif x == '3':
+    puerta3()
+    cuarto43()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto44()
+def cuarto45():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #11 los cuartos no están ordenados como deberian, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto46()
+  elif x == '2':
+    puerta2()
+    cuarto46()
+  elif x == '3':
+    puerta3()
+    cuarto44()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto45()
+def cuarto46():
+  contador()
+  puertas_4()
+  print("\nEstás en el cuarto #37 ya pasaste por aqui, recuerda, tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto20()
+  elif x == '2':
+    puerta2()
+    cuarto45()
+  elif x == '3':
+    puerta3()
+    cuarto45()
+  elif x == '4':
+    puerta4()
+    cuarto22()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto46()
+def cuarto47():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #5, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto19()
+  elif x == '2':
+    puerta2()
+    cuarto20()
+  elif x == '3':
+    puerta3()
+    cuarto9()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto47()
+def cuarto48():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #43 creo que te estás alejando cada vez más, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto21()
+  elif x == '2':
+    puerta2()
+    final()
+  elif x == '3':
+    puerta3()
+    cuarto10()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto48()
+def cuarto49():
+  contador()
+  puertas_3()
+  print("\nEstás en el cuarto #18 muchas vueltas, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+    cuarto38()
+  elif x == '2':
+    puerta2()
+    cuarto4()
+  elif x == '3':
+    puerta3()
+    print("Camino cerrado, vuelve al cuarto #49")
+    cuarto49()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto49()
+def cuarto50():
+  contador()
+  puertas_4()
+  print("\nEstás en el cuarto #8 ese musgo en la pared resulta familiar, tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+    cuarto39()
+  elif x == '2':
+    puerta2()
+    cuarto40()
+  elif x == '3':
+    puerta3()
+    cuarto12()
+  elif x == '4':
+    puerta4()
+    cuarto38()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto50()
+def final():  
+  print(("\033[1;31m"+(11*"=")+" FELICIDADES, LLEGASTE A LA SALIDA DEL LABERINTO "+(11*"=")))
+  score()
+  print("\033[1;37m"+"\n\n¿Deseas volver a jugar?") 
+  x = input("\n\t1) Si.\t2)No.\n\n")
+  if x == '1':
+    entrada()
+  elif x == '2':
+    creditos()
+  else:
+    print("\n Ingresa una de las opciones válidas")
+    final()
+def creditos():
+  print((27*"=")+" MUCHAS GRACIAS POR JUGAR "+(27*"="))
+  print("\n\n\n"+(22*"=")+" Creado por:HEBERT ARANDA GUTIERREZ "+(22*"="))
+def cuarto_con_3_puertas():
+  print("\nEstás en el cuarto #1, tienes 3 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\t3) Puerta 3.\n\n ")
+  if x == '1':
+    puerta1()
+  elif x == '2':
+    puerta2()
+  elif x == '3':
+    puerta3()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto_con_3_puertas()
+def cuarto_con_4_puertas():
+  print("\nEstás en el cuarto #1, tienes 4 puertas a elegir para continuar con tu camino.")
+  x= input("\nElige una de las puertas para continuar \n\n\t1) Puerta 1.\t2) Puerta 2.\n\t3) Puerta 3.\t4) Puerta 4. \n\n ")
+  if x == '1':
+    puerta1()
+  elif x == '2':
+    puerta2()
+  elif x == '3':
+    puerta3()
+  elif x == '4':
+    puerta4()
+  else:
+    print("\nIngresa una de las opciones válidas")
+    cuarto_con_4_puertas()
+def puertas_2():
+  print("""
+           ┌─────┐  ┌─────┐ 
+           │     │  │     │
+           │ /│  │  │ ──┐ │
+           │  │  │  │ ┌─┘ │ 
+           │ ─┴─ │  │ └── │ 
+           """)
+def puertas_3():
+  print("""
+           ┌─────┐  ┌─────┐  ┌─────┐  
+           │     │  │     │  │     │
+           │ /│  │  │ ──┐ │  │ ──┐ │
+           │  │  │  │ ┌─┘ │  │ ──┤ │
+           │ ─┴─ │  │ └── │  │ ──┘ │
+           """)
+def puertas_4():
+  print("""
+           ┌─────┐  ┌─────┐  ┌─────┐  ┌─────┐  
+           │     │  │     │  │     │  │     │ 
+           │ /│  │  │ ──┐ │  │ ──┐ │  │ │ │ │
+           │  │  │  │ ┌─┘ │  │ ──┤ │  │ └─┤ │
+           │ ─┴─ │  │ └── │  │ ──┘ │  │   │ │
+           """)
+def limpiar():
+  replit.clear()
+def restart():  
+    print("\n¿Estás perdido?")
+    x = input("\n¿Deseas reiniciar el juego? S/N\n\n")
+    if x == 's' or x == 'S':
+      entrada()
+    elif x == 'n' or x == 'N':
+      print("\nContinúa tu camino")
+    else:
+      print("\n Ingresa una de las opciones válidas")
+      restart()  
+movimientos = 0
+def contador():
+    global movimientos
+    movimientos += 1
+    if movimientos == 25:    
+      restart()
+    elif movimientos == 50:
+      restart()
+    elif movimientos == 75:
+      restart()
+    elif movimientos == 100:
+      print("\n\nHas llegado al límite de movimientos, volverás a la entrada")
+      entrada()
+def score():
+    print("\n\nLOGRASTE SALIR EN:",movimientos,"MOVIMIENTOS!!. FELICIDADES!!!")
