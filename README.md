@@ -12,6 +12,8 @@ The 1.2 version added those doors to each room, added a counter for the steps th
 
 The 2.0 version and last until now added the restart function available after some steps, asked you if you want to restart or continue, and ask you again certain number of steps later and so on until reach the max movements allowed (100) and reaches you to the start.
 
+The PDF file is the image of how the rooms are connected in the code, remember that the names inside the game are mixed so you will need to know which room in the code it's in the game if you are looking to end the game faster
+
 The game can be easily translated to english or another language, currently I'm working to make it and executable file to be played on any pc and eventually if it's possible that can be played on android phone via apk.
 
 Any feedback it will be welcome.
