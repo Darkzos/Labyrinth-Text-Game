@@ -1,0 +1,1503 @@
+import replit
+from Other_functions import *
+#Salidas en cuartos 11(48)-22(17)-23(16)-48(43)
+camino = []
+
+
+def game():
+  #Inicia el juego
+  titulo()
+  inicio()
+
+
+def titulo():
+  print(("\033[1;31m" + (11 * "=") +
+         " WELCOME TO THE MAZE, GET TO THE END TO ESCAPE " +
+         (11 * "=")))  #Imprime el titulo de la pantalla principal
+
+
+def inicio():  #Inicia el juego
+  print(
+    "\033[1;37m" +
+    "\n\nDo you want to play the tutorial to understand the mechanics? Choose the desired option by typing the number of the option."
+  )
+  x = input("\n\t1) Yes.\t2) No.\n\n")
+  if x == '1':
+    tutorial()
+  elif x == '2':
+    entrada()
+  else:
+    print("\n Enter one of the valid options")
+    inicio()
+
+
+def tutorial():  #Da opciones para iniciar el tutorial o pasar al juego
+  print(
+    "\nThis is a maze where you will have to go through several rooms, each room has two or more doors to choose from, the options will be labeled as 'Door N', 'Door E', 'Door W', 'Door E', the letters mean N: North, E: East, W: West and S: South, with the keyboard you will have to type the option of the door you want to go to, and so on until you reach the exit, there are 4 possible exits from the maze, you have a limited number of opportunities.\n\nLet's start, you are in room #1.\n"
+  )
+  cuarto_tutorial()
+
+
+def cuarto_tutorial():
+  puertas_3()  #Primer cuarto del tutorial para mostrar la mecánica básica del juego
+  x = input(
+    "\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n "
+  )
+  if x == '1':
+    puertaN()
+    cuarto_tutorial2()
+  elif x == '2':
+    puertaE()
+    cuarto_tutorial2()
+  elif x == '3':
+    puertaW()
+    cuarto_tutorial2()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto_tutorial()
+
+
+def cuarto_tutorial2():  #Segundo cuarto del tutorial para finalizar el tutorial y empezar el juego o volver a tomarlo
+  puertas_3()
+  x = input(
+    "You are in the room #2.\n\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n "
+  )
+  if x == '1':
+    puertaN()
+  elif x == '2':
+    puertaE()
+  elif x == '3':
+    puertaW()
+  elif x == '4':
+    puertaS()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto_tutorial2()
+  print(
+    "Congratulations you have finished the tutorial, now you understand the basic mechanics of the game"
+  )
+  f = input(
+    "\nIf you want to repeat the tutorial press '1', if you want to start the game press '2'\n\n"
+  )
+  if f == '1':
+    tutorial()
+  if f == '2':
+    entrada()
+
+
+def puertaN():
+  print("\nYou have chosen the door N.\n")
+def puertaE():
+  print("\nYou have chosen the door E.\n")
+def puertaW():
+  print("\nYou have chosen the door W.\n")
+def puertaS():
+  print("\nYou have chosen the door S.\n")
+
+def entrada():
+  clean()
+  print(
+  "\nYou have started the game, you are at the entrance of the maze, now you will enter the first room\n"
+  )
+  cuarto1()
+
+def cuarto1():
+  camino.append("1")#Cuarto de inicio del juego
+  puertas_2()
+  print(
+    "\nYou are in room #1 here starts your journey, you have 2 doors to choose from to continue on your way."
+  )
+  x = input(
+    "\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto12()
+  elif x == '2':
+    clean()
+    puertaW()
+    cuarto2()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto1()
+
+
+def cuarto2():
+  camino.append("26")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #26 there is a wooden table with a broken leg in the middle of the room, you have 3 doors to choose from to continue on your way."
+  )
+  x = input(
+    "\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto4()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto1()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto3()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto2()
+
+
+def cuarto3():
+  camino.append("23")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #23 there is a vine growing on the North door, will that mean something? you have 3 doors to choose from to continue on your way."
+  )
+  x = input(
+    "\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto24()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto4()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto2()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto3()
+
+
+def cuarto4():
+  camino.append("7")
+  contador()
+  puertas_4()
+  print(
+    "\nYou are in the room #7 there is a pyramid shaped stone in the corner. Have you already been here? you have 4 doors to choose from to continue on your way."
+  )
+  x = input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto5()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto49()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto2()
+  elif x == '4':
+    clean()
+    puertaW()
+    cuarto3()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto4()
+
+
+def cuarto5():
+  camino.append("2")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #2 there is an old painting on the wall, it's full of mold but you can see a face of a woman in it, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto24()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto6()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto4()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto5()
+
+
+def cuarto6():
+  camino.append("46")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #46 do you seem to be going around in a circle, or are you approaching the exit? you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto7()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto5()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto24()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto6()
+
+
+def cuarto7():
+  camino.append("21")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #21 this room has less light than the others, you can barely see something in front of you, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto8()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto6()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto25()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto7()
+
+
+def cuarto8():
+  camino.append("10")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #10 are you moving forward or backward? you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto26()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto9()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto7()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto8()
+
+
+def cuarto9():
+  camino.append("14")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #14 the forking roads keep appearing but a circle-shaped stain on the wall gives you an idea of where you are...., you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto8()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto47()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto10()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto9()
+
+
+def cuarto10():
+  camino.append("12")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #12 there is some rusty shackles on the wall and some stains on the floor, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto9()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto48()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto11()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto10()
+
+
+def cuarto11():
+  camino.append("48")
+  contador()
+  puertas_4()
+  print(
+    "\nYou are in the room #48 What is that? fresh air? Or just another dead end?, you have 4 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto10()
+  elif x == '2':
+    clean()
+    puertaE()
+    final()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto29()
+  elif x == '4':
+    clean()
+    puertaW()
+    cuarto27()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto11()
+
+
+def cuarto12():
+  camino.append("40")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #40 this looks familiar..., you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto50()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto13()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto1()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto12()
+
+
+def cuarto13():
+  camino.append("31")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #31 there is some water dripping over he wall, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto14()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto12()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto40()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto13()
+
+
+def cuarto14():
+  camino.append("4")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #4 Have you gone back to the entrance or does it just look a lot like it?, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto15()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto13()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto40()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto14()
+
+
+def cuarto15():
+  camino.append("45")
+  contador()
+  puertas_4()
+  print("\nYou are in the room #45 so many doors to choose from..., you have 4 doors to choose from to continue on your way.")
+  x= input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto16()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto18()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto14()
+  elif x == '4':
+    clean()
+    puertaW()
+    cuarto16()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto15()
+
+
+def cuarto16():
+  camino.append("24")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #24 have you been here? that damaged wall looks familiar, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto15()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto17()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto15()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto16()
+
+
+def cuarto17():
+  camino.append("38")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #38 there is an old rusty chair on the corner and broken glass on the floor, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto18()
+  elif x == '2':
+    clean()
+    puertaS()
+    print("Road closed, go back to the room #38")
+    cuarto17()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto16()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto17()
+
+
+def cuarto18():
+  camino.append("3")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #3 this room smells like burned wood, there is remains of a fire in the middle, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto19()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto15()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto17()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto18()
+
+
+def cuarto19():
+  camino.append("35")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #35 You have walked a lot. Is this the door to the exit?, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto18()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto20()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto47()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto19()
+
+
+def cuarto20():
+  camino.append("29")
+  contador()
+  puertas_4()
+  print(
+    "\nYou are in the room #29 it seems that this place has no end, wait is that a finger on the floor? You have to get out of here, you have 4 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto47()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto19()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto46()
+  elif x == '4':
+    clean()
+    puertaW()
+    cuarto21()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto20()
+
+
+def cuarto21():
+  camino.append("49")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #49 is that another finger? Please run, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto20()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto22()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto48()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto21()
+
+
+def cuarto22():
+  camino.append("17")
+  contador()
+  puertas_4()
+  print(
+    "\nYou are in the room #17 that pyramid-shaped stone again, is it the same room? no, it isn't that stone has dry blood in it, you have 4 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto21()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto46()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto43()
+  elif x == '4':
+    clean()
+    puertaW()
+    final()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto22()
+
+
+def cuarto23():
+  camino.append("16")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #16 you are running in circles, you have to think better or you will die here, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+
+  if x == '1':
+    clean()
+    puertaN()
+    final()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto36()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto35()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto23()
+
+
+def cuarto24():
+  camino.append("33")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #33, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto3()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto6()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto5()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto24()
+
+
+def cuarto25():
+  camino.append("50")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #50 this place only has 50 rooms, it should be the way out or not?, you have 4 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto26()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto7()
+  elif x == '3':
+    clean()
+    puertaS()
+    print("Road closed, go back to the room #50")
+    cuarto25()
+  elif x == '4':
+    clean()
+    puertaW()
+    cuarto26()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto25()
+
+
+def cuarto26():
+  camino.append("27")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #27 you are thirsty and hungry, if you faint here no one will come to help you, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto8()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto25()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto25()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto26()
+
+
+def cuarto27():
+  camino.append("34")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #34 rest a little while here, it's seems like a safe place, the only nice room in this maze, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto11()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto27()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto27()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto27()
+
+
+def cuarto28():
+  camino.append("41")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #41 sit down for a while and rest you need it, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto32()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto29()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto31()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto28()
+
+
+def cuarto29():
+  camino.append("32")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #32 a breeze came from the West door, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto11()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto33()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto28()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto29()
+
+
+def cuarto30():
+  camino.append("25")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #25 this place seems to turn on itself, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto30()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto31()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto30()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto30()
+
+
+def cuarto31():
+  camino.append("30")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #30, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto28()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto32()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto30()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto31()
+
+
+def cuarto32():
+  camino.append("13")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #13 you have returned to the same place over and over again, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto31()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto33()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto28()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto32()
+
+def cuarto33():
+  camino.append("6")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #6 there is a bottle with some brown liquid in it are you going to drink that? you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto29()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto35()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto32()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto33()
+
+
+def cuarto34():
+  camino.append("39")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #39 this room is different there is a different color on the doors, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto35()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto37()
+  elif x == '3':
+    clean()
+    puertaW()
+    print("Road closed, go back to the room #39")
+    cuarto34()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto34()
+
+
+def cuarto35():
+  camino.append("22")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #22 there is more stains of blood on the walls, what happened here? you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto33()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto23()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto34()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto35()
+
+
+def cuarto36():
+  camino.append("42")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #42 you hear a noise behind one door..., you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto43()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto37()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto23()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto36()
+
+
+def cuarto37():
+  camino.append("20")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #20 will you be near the exit?, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto42()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto34()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto36()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto37()
+
+
+def cuarto38():
+  camino.append("19")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #19 everything is connected to everything does this place have an exit? you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto49()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto39()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto50()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto38()
+
+
+def cuarto39():
+  camino.append("28")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #28 Is that a skeleton?!!, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto40()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto50()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto38()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto39()
+
+
+def cuarto40():
+  camino.append("44")
+  contador()
+  puertas_4()
+  print(
+    "\nYou are in the room #44 too many options..., you have 4 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto14()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto13()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto50()
+  elif x == '4':
+    clean()
+    puertaW()
+    cuarto39()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto40()
+
+
+def cuarto41():
+  camino.append("9")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #9 you are really tired, your legs can move a step more but you have to found the exit, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto44()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto42()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto42()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto41()
+
+
+def cuarto42():
+  camino.append("36")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #36 there is no way out other than to keep moving forward, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto37()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto41()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto41()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto42()
+
+
+def cuarto43():
+  camino.append("15")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #15 you smell like rotten food behind one of the doors, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto22()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto44()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto36()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto43()
+
+
+def cuarto44():
+  camino.append("47")
+  contador()
+  puertas_3_2()
+  print(
+    "\nYou are in the room #47 will you be able to get out of here or do you will die here with the others who tried this before, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door S.\t3) Door W.\n\n ")
+
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto45()
+  elif x == '2':
+    clean()
+    puertaS()
+    cuarto41()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto43()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto44()
+
+
+def cuarto45():
+  camino.append("11")
+  contador()
+  puertas_3_1()
+  print(
+    "\nYou are in the room #11 the rooms are not arranged as they should this is weird, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door S.\n\n ")
+
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto46()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto46()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto44()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto45()
+
+
+def cuarto46():
+  camino.append("37")
+  contador()
+  puertas_4()
+  print(
+    "\nYou are in the room #37 you already passed here, remember, you have 4 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto20()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto45()
+  elif x == '3':
+    clean()
+    puertaS()
+    cuarto45()
+  elif x == '4':
+    clean()
+    puertaW()
+    cuarto22()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto46()
+
+
+def cuarto47():
+  camino.append("5")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #5 the walls are made of stones in this room, the doors are different, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto19()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto20()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto9()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto47()
+
+
+def cuarto48():
+  camino.append("43")
+  contador()
+  puertas_3_3()
+  print(
+    "\nYou are in the room #43 I think you're getting further and further away, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door E.\t2) Door S.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaE()
+    cuarto21()
+  elif x == '2':
+    clean()
+    puertaS()
+    final()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto10()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto48()
+
+
+def cuarto49():
+  camino.append("18")
+  contador()
+  puertas_3()
+  print(
+    "\nYou are in the room #18 many turns maybe the exit will be near here, you have 3 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue. \n\n\t1) Door N.\t2) Door E.\t3) Door W.\n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    print("Road closed, go back to the room #18")
+    cuarto49()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto38()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto4()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto49()
+
+
+def cuarto50():
+  camino.append("8")
+  contador()
+  puertas_4()
+  print(
+    "\nYou are in the room #8 that moss on the wall looks familiar but are you sure of that? There is something weird in the atmosphere, you have 4 doors to choose from to continue on your way."
+  )
+  x= input("\nChoose one of the doors to continue \n\n\t1) Door N.\t2) Door E.\n\t3) Door S.\t4) Door W. \n\n ")
+  if x == '1':
+    clean()
+    puertaN()
+    cuarto39()
+  elif x == '2':
+    clean()
+    puertaE()
+    cuarto40()
+  elif x == '3':
+    clean()
+    puertaW()
+    cuarto12()
+  elif x == '4':
+    clean()
+    puertaS()
+    cuarto38()
+  else:
+    print("\nEnter one of the valid options")
+    cuarto50()
+
+
+def final():
+  clean()
+  print(("\033[1;31m" + (11 * "=") +
+         " CONGRATULATIONS, YOU REACHED THE EXIT OF THE MAZE " + (11 * "=")))
+  score()
+  path()
+  print("\033[1;37m" + "\n\nDo you want to play again?")
+  x = input("\n\t1) Yes.\t2)No.\n\n")
+  if x == '1':
+    entrada()
+  elif x == '2':
+    creditos()
+  else:
+    print("\n Enter one of the valid options")
+    final()
+
+
+def creditos():
+  print((27 * "=") + " THANK YOU SO MUCH FOR PLAYING " + (27 * "="))
+  print("\n\n\n" + (22 * "=") + " Created by:HEBERT ARANDA GUTIERREZ " +
+        (22 * "="))
+  print("\n\n\n More about me and my projects in: https://github.com/Darkzos")
+def path():
+  global camino
+  print("\nYou started in the room #",camino[0])
+  print("\nYou pass trough the rooms",camino[1:-1])
+  print("\nThe last room you've been was the room #",camino[-1])
+movimientos = 0
+def contador():
+    global movimientos
+    movimientos += 1
+    if movimientos == 25:    
+      restart()
+    elif movimientos == 50:
+      restart()
+    elif movimientos == 75:
+      restart()
+    elif movimientos == 100:
+      print("\n\nYou have reached the movement limit, you will return to the entrance")
+      entrada()
+def score():
+    print("\n\nYOU MADE IT OUT IN:",movimientos,"MOVEMENTS!!. CONGRATULATIONS!!!")
+def restart():
+    print("\nYou have",(100-movimientos),"movements left")
+    print("\nAre you lost?")
+    x = input("\nDo you want to restart the game? Y/N\n\n")
+    if x == 'y' or x == 'Y':
+      entrada()
+    elif x == 'n' or x == 'N':
+      print("\nContinue your way")
+    else:
+      print("\n Enter one of the valid options")
+      restart()
+      
+def puertas_2():
+  print("""
+             ┌───────┐    ┌────────┐  
+             │       │    │        │ 
+             │ ┌───  │    │ │    │ │
+             │ ├───  │    │ │ /\ │ │ 
+             │ │___  │    │ │/  \│ │ 
+           """)
+def puertas_3():
+  print("""
+           ┌───────┐  ┌───────┐  ┌────────┐  
+           │       │  │       │  │        │ 
+           │ │\  │ │  │ ┌───  │  │ │    │ │
+           │ │ \ │ │  │ ├───  │  │ │ /\ │ │ 
+           │ │  \│ │  │ │___  │  │ │/  \│ │ 
+           """)
+def puertas_3_1():
+  print("""
+           ┌───────┐  ┌───────┐  ┌──────┐   
+           │       │  │       │  │      │   
+           │ │\  │ │  │ ┌───  │  │ ┌─── │  
+           │ │ \ │ │  │ ├───  │  │ └──┐ │   
+           │ │  \│ │  │ │___  │  │ ───┘ │   
+           """)
+def puertas_3_2():
+  print("""
+           ┌───────┐  ┌──────┐  ┌────────┐  
+           │       │  │      │  │        │ 
+           │ │\  │ │  │ ┌─── │  │ │    │ │
+           │ │ \ │ │  │ └──┐ │  │ │ /\ │ │ 
+           │ │  \│ │  │ ───┘ │  │ │/  \│ │ 
+           """)
+def puertas_3_3():
+  print("""
+           ┌───────┐  ┌──────┐  ┌────────┐  
+           │       │  │      │  │        │ 
+           │ ┌───  │  │ ┌─── │  │ │    │ │
+           │ ├───  │  │ └──┐ │  │ │ /\ │ │ 
+           │ │___  │  │ ───┘ │  │ │/  \│ │ 
+           """)
+  
+def puertas_4():
+  print("""
+           ┌───────┐  ┌───────┐  ┌──────┐  ┌────────┐  
+           │       │  │       │  │      │  │        │ 
+           │ │\  │ │  │ ┌───  │  │ ┌─── │  │ │    │ │
+           │ │ \ │ │  │ ├───  │  │ └──┐ │  │ │ /\ │ │ 
+           │ │  \│ │  │ │___  │  │ ───┘ │  │ │/  \│ │ 
+           """)
+def clean():
+  replit.clear()
+
+game()
