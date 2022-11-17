@@ -219,7 +219,7 @@ def cuarto9():
     cuarto10()
   else:
     print("\nEnter one of the valid options")
-    cuart9()
+    cuarto9()
 def cuarto10():
   contador()
   puertas_3()
