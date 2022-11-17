@@ -95,7 +95,6 @@ def puertaS():
   print("\nYou have chosen the door S.\n")
 
 def entrada():
-  clean()
   print(
   "\nYou have started the game, you are at the entrance of the maze, now you will enter the first room\n"
   )
@@ -1415,7 +1414,6 @@ def creditos():
   print((27 * "=") + " THANK YOU SO MUCH FOR PLAYING " + (27 * "="))
   print("\n\n\n" + (22 * "=") + " Created by:HEBERT ARANDA GUTIERREZ " +
         (22 * "="))
-  print("\n\n\n More about me and my projects in: https://github.com/Darkzos")
 def path():
   global camino
   print("\nYou started in the room #",camino[0])
@@ -1433,6 +1431,7 @@ def contador():
       restart()
     elif movimientos == 100:
       print("\n\nYou have reached the movement limit, you will return to the entrance")
+      movimientos = 0
       entrada()
 def score():
     print("\n\nYOU MADE IT OUT IN:",movimientos,"MOVEMENTS!!. CONGRATULATIONS!!!")
