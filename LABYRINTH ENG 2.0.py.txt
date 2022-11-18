@@ -1,7 +1,8 @@
 import replit
+from Other_functions import *
 #Salidas en cuartos 11(48)-22(17)-23(16)-48(43)
 camino = []
-
+movimientos = 0
 
 def game():
   #Inicia el juego
@@ -1418,27 +1419,32 @@ def path():
   print("\nYou started in the room #",camino[0])
   print("\nYou pass trough the rooms",camino[1:-1])
   print("\nThe last room you've been was the room #",camino[-1])
-movimientos = 0
 def contador():
     global movimientos
+    global camino
     movimientos += 1
-    if movimientos == 25:    
+    if movimientos == 10:    
       restart()
-    elif movimientos == 50:
+    elif movimientos == 15:
       restart()
-    elif movimientos == 75:
+    elif movimientos == 20:
       restart()
-    elif movimientos == 100:
+    elif movimientos == 25:
       print("\n\nYou have reached the movement limit, you will return to the entrance")
+      print("Your movements so far",camino)
       movimientos = 0
+      camino = []
       entrada()
 def score():
     print("\n\nYOU MADE IT OUT IN:",movimientos,"MOVEMENTS!!. CONGRATULATIONS!!!")
 def restart():
+    global camino
     print("\nYou have",(100-movimientos),"movements left")
+    print("Your movements so far",camino)
     print("\nAre you lost?")
     x = input("\nDo you want to restart the game? Y/N\n\n")
     if x == 'y' or x == 'Y':
+      camino = []
       entrada()
     elif x == 'n' or x == 'N':
       print("\nContinue your way")
