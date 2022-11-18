@@ -1423,13 +1423,13 @@ def contador():
     global movimientos
     global camino
     movimientos += 1
-    if movimientos == 10:    
+    if movimientos == 25:    
       restart()
-    elif movimientos == 15:
+    elif movimientos == 50:
       restart()
-    elif movimientos == 20:
+    elif movimientos == 75:
       restart()
-    elif movimientos == 25:
+    elif movimientos == 100:
       print("\n\nYou have reached the movement limit, you will return to the entrance")
       print("Your movements so far",camino)
       movimientos = 0
